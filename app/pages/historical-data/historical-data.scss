@@ -1,0 +1,15 @@
+.historical-data-page {
+  .swiper-container-horizontal > .swiper-pagination {
+    bottom: initial;
+    top: -5px;
+  }
+
+  .slide-zoom {
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+
+chart {
+  width: 95%;
+}

@@ -1,0 +1,35 @@
+<!--
+  Generated template for the HistoricalDataPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar teal>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    
+    <ion-title>Historical Data</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-slides [options]='sliderOptions'>
+    <ion-slide *ngFor='let item of chartData | keyValue'>
+      <ion-list no-lines>
+        <ion-list-header>
+          {{ item.key }}
+        </ion-list-header>
+        <ion-item *ngFor='let chart of item.value'>
+          <chart [options]="chart"></chart>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

@@ -1,0 +1,98 @@
+<!--
+  Generated template for the AccountPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar teal>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Account</ion-title>
+
+    <ion-buttons end>
+      <button (click)="save()">
+        Save
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-segment [(ngModel)]="section">
+    <ion-segment-button value="home">
+      Home
+    </ion-segment-button>
+    <ion-segment-button value="contact">
+      Contact
+    </ion-segment-button>
+    <ion-segment-button value="networkhub">
+      Network hub
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="section">
+    <ion-list *ngSwitchCase="'home'">
+      <ion-item>
+        <ion-label floating>House #</ion-label>
+        <ion-input type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Street name</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>City</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>State</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>ZIP</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'contact'">
+      <ion-item>
+        <ion-label floating>First name</ion-label>
+        <ion-input type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Last name</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Phone</ion-label>
+        <ion-input type="tel"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'networkhub'">
+      <ion-item>
+        <ion-label floating>MAC Address</ion-label>
+        <ion-input type="text" value='000780153DF5' disabled></ion-input>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

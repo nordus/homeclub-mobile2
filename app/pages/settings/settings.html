@@ -1,0 +1,119 @@
+<!--
+  Generated template for the SettingsPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar teal>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    
+    <ion-title>Alert Setup</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header>
+        Living Room
+        <ion-note item-right>000780153E58</ion-note>
+      </ion-list-header>
+      
+      <ion-item>
+        <ion-label>Room</ion-label>
+        <ion-select [(ngModel)]="room1">
+          <ion-option value="bedroom">Bedroom</ion-option>
+          <ion-option value="living room">Living Room</ion-option>
+          <ion-option value="other">Other</ion-option>
+          <ion-option value="hallway">Hallway</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Temperature alerts</ion-label>
+        <ion-toggle checked="false"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Motion</ion-label>
+        <ion-toggle checked="true"></ion-toggle>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header>
+        Master Bedroom
+        <ion-note item-right>000780153F71</ion-note>
+      </ion-list-header>
+      
+      <ion-item>
+        <ion-label>Room</ion-label>
+        <ion-select [(ngModel)]="room2">
+          <ion-option value="bedroom">Bedroom</ion-option>
+          <ion-option value="living room">Living Room</ion-option>
+          <ion-option value="other">Other</ion-option>
+          <ion-option value="hallway">Hallway</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Temperature alerts</ion-label>
+        <ion-toggle checked="false"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Light alerts</ion-label>
+        <ion-toggle checked="false"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Humidity alerts</ion-label>
+        <ion-toggle checked="false"></ion-toggle>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header>
+        Garage
+        <ion-note item-right>000780153F5F</ion-note>
+      </ion-list-header>
+      
+      <ion-item>
+        <ion-label>Room</ion-label>
+        <ion-select [(ngModel)]="room3">
+          <ion-option value="bedroom">Bedroom</ion-option>
+          <ion-option value="living room">Living Room</ion-option>
+          <ion-option value="other">Other</ion-option>
+          <ion-option value="hallway">Hallway</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Temperature alerts</ion-label>
+        <ion-toggle checked="false"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Light alerts</ion-label>
+        <ion-toggle checked="false"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Humidity alerts</ion-label>
+        <ion-toggle checked="false"></ion-toggle>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+</ion-content>
