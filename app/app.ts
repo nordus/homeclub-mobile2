@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
+import { FIREBASE_PROVIDERS, AuthMethods, AuthProviders, defaultFirebase, FirebaseAuth, firebaseAuthConfig } from 'angularfire2';
 import { ionicBootstrap, Platform, Nav } from 'ionic-angular';
+import { provideCloud, CloudSettings } from '@ionic/cloud-angular';
 import { StatusBar } from 'ionic-native';
 
 import { AccountPage } from './pages/account/account';
@@ -9,10 +11,13 @@ import { HistoricalDataPage } from './pages/historical-data/historical-data';
 import { LoginPage } from './pages/login/login';
 import { SettingsPage } from './pages/settings/settings';
 import { VerifyHuePage } from './pages/verify-hue/verify-hue';
-
 import { UserData } from './providers/user-data';
 
-import {FIREBASE_PROVIDERS, AuthMethods, AuthProviders, defaultFirebase, FirebaseAuth, firebaseAuthConfig} from 'angularfire2';
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': '519f0065'
+  }
+};
 
 
 @Component({
@@ -22,7 +27,7 @@ import {FIREBASE_PROVIDERS, AuthMethods, AuthProviders, defaultFirebase, Firebas
 class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = VerifyHuePage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any, icon: string}>;
 
@@ -35,7 +40,8 @@ class MyApp {
       { title: 'Verify Install', component: DevicesPage, icon: 'checkmark-circle-outline' },
       { title: 'Alert Setup', component: SettingsPage, icon: 'alert' },
       { title: 'Historical Data', component: HistoricalDataPage, icon: 'stats' },
-      { title: 'Account', component: AccountPage, icon: 'contact' }
+      { title: 'Account', component: AccountPage, icon: 'contact' },
+      { title: 'Check for Update', component: AccountPage, icon: 'download' }
     ];
 
   }
@@ -60,12 +66,16 @@ class MyApp {
   }
 }
 
-ionicBootstrap(MyApp, [FIREBASE_PROVIDERS, defaultFirebase({
-  apiKey: "AIzaSyAtgJA_tMnVlyP0fw41BZALQ7jBx9c4nEs",
-  authDomain: "homeclub2-cd98f.firebaseapp.com",
-  databaseURL: "https://homeclub2-cd98f.firebaseio.com",
-  storageBucket: ""
-}), firebaseAuthConfig({
-  provider: AuthProviders.Password,
-  method: AuthMethods.Password
-})]);
+ionicBootstrap(MyApp, [
+  FIREBASE_PROVIDERS,
+  defaultFirebase({
+    apiKey: "AIzaSyAtgJA_tMnVlyP0fw41BZALQ7jBx9c4nEs",
+    authDomain: "homeclub2-cd98f.firebaseapp.com",
+    databaseURL: "https://homeclub2-cd98f.firebaseio.com",
+    storageBucket: ""
+  }),
+  provideCloud(cloudSettings),
+  firebaseAuthConfig({
+    provider: AuthProviders.Password,
+    method: AuthMethods.Password
+  })]);
