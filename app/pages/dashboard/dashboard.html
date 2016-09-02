@@ -19,6 +19,18 @@
 
 <ion-content padding>
 
+  <div class='modal' *ngIf='!(af.auth | async)'>
+    <ion-card>
+      <ion-card-header>
+        Buy HomeClub hardware and become a member at:
+      </ion-card-header>
+
+      <ion-card-content>
+        <a href="http://homeclub.us" target="_">http://homeclub.us</a>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
   <ion-card>
     <ion-list>
       <ion-list-header>

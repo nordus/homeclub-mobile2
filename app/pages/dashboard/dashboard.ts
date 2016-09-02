@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { AngularFire } from 'angularfire2';
 
 /*
   Generated class for the DashboardPage page.
@@ -12,7 +13,7 @@ import { NavController } from 'ionic-angular';
 })
 export class DashboardPage {
 
-  constructor(private navCtrl: NavController) {
+  constructor(public af: AngularFire, private navCtrl: NavController) {
 
   }
 

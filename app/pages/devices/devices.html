@@ -18,7 +18,7 @@
 
 
 <ion-content padding>
-  <ion-list>
+  <ion-list no-lines>
     <ion-item *ngFor="let p of deviceVerificationPages">
       {{ p.title }}
       <button (click)='openPage(p)' clear item-right>Verify</button>

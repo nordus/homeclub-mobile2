@@ -9,8 +9,14 @@ import { HistoricalDataPage } from './pages/historical-data/historical-data';
 import { LoginPage } from './pages/login/login';
 import { SettingsPage } from './pages/settings/settings';
 
+import { UserData } from './providers/user-data';
+
+import {FIREBASE_PROVIDERS, AuthMethods, AuthProviders, defaultFirebase, FirebaseAuth, firebaseAuthConfig} from 'angularfire2';
+
+
 @Component({
-  templateUrl: 'build/app.html'
+  templateUrl: 'build/app.html',
+  providers: [UserData]
 })
 class MyApp {
   @ViewChild(Nav) nav: Nav;
@@ -19,7 +25,7 @@ class MyApp {
 
   pages: Array<{title: string, component: any, icon: string}>;
 
-  constructor(public platform: Platform) {
+  constructor(public auth: FirebaseAuth, public platform: Platform) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -47,21 +53,18 @@ class MyApp {
     this.nav.setRoot(page.component);
   }
 
-  openDevicesPage() {
-    this.openPage( { component:DevicesPage } )
-  }
-
-  openDashboardPage() {
-    this.openPage( { component:DashboardPage } )
-  }
-
-  openSettingsPage() {
-    this.openPage( { component:SettingsPage } )
-  }
-
   logOut() {
+    this.auth.logout();
     this.nav.setRoot( LoginPage )
   }
 }
 
-ionicBootstrap(MyApp);
+ionicBootstrap(MyApp, [FIREBASE_PROVIDERS, defaultFirebase({
+  apiKey: "AIzaSyAtgJA_tMnVlyP0fw41BZALQ7jBx9c4nEs",
+  authDomain: "homeclub2-cd98f.firebaseapp.com",
+  databaseURL: "https://homeclub2-cd98f.firebaseio.com",
+  storageBucket: ""
+}), firebaseAuthConfig({
+  provider: AuthProviders.Password,
+  method: AuthMethods.Password
+})]);
