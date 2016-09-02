@@ -8,6 +8,7 @@ import { DevicesPage } from './pages/devices/devices';
 import { HistoricalDataPage } from './pages/historical-data/historical-data';
 import { LoginPage } from './pages/login/login';
 import { SettingsPage } from './pages/settings/settings';
+import { VerifyHuePage } from './pages/verify-hue/verify-hue';
 
 import { UserData } from './providers/user-data';
 
@@ -21,7 +22,7 @@ import {FIREBASE_PROVIDERS, AuthMethods, AuthProviders, defaultFirebase, Firebas
 class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = VerifyHuePage;
 
   pages: Array<{title: string, component: any, icon: string}>;
 

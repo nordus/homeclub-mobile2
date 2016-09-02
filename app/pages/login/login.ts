@@ -48,7 +48,6 @@ export class LoginPage {
   }
 
   private LoginError(error): void {
-    console.log( error );
     let alert = this.alertController.create({
       title: 'Login Failed',
       subTitle: 'Please check your email and/or password and try again',
